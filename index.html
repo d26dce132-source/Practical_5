@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<form onsubmit="return validateForm()">
+
+    <img src="Regi.png" alt="CHARUSAT Logo" class="logo">
+    
+    <h2>Student Registration Form</h2>
+
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <span id="nameError"></span>
+
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+    <span id="emailError"></span>
+
+    <label>Mobile Number:</label>
+    <input type="tel" id="mobile" placeholder="Enter 10 digit mobile number">
+    <span id="mobileError"></span>
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <span id="passwordError"></span>
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm password">
+    <span id="confirmError"></span>
+
+    <label>Course:</label>
+    <select id="course">
+        <option value="">-- Select Course --</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="BTech">B.Tech</option>
+        <option value="MCA">MCA</option>
+    </select>
+    <span id="courseError"></span>
+
+    <label>Year:</label>
+    <select id="year">
+        <option value="">-- Select Year --</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+        <option value="4">Fourth Year</option>
+    </select>
+
+    <label>Gender:</label>
+
+    <input class="gender" type="radio" name="gender" value="Male"> Male
+    <input class="gender" type="radio" name="gender" value="Female"> Female
+    <input class="gender" type="radio" name="gender" value="Other"> Other
+
+    <span id="genderError"></span>
+
+    <label>
+        <input class="terms" type="checkbox" id="terms">
+        I accept the terms and conditions
+    </label>
+
+    <span id="termsError"></span>
+<div class="captcha-section">
+
+    <label>Please verify that you are human <span>*</span></label>
+
+    <div class="captcha-box">
+        <input type="checkbox" id="humanCheck">
+        <label for="humanCheck">I am human</label>
+
+        <div class="captcha-logo">
+            <b>🛡️</b>
+            <small>hCaptcha</small>
+            <small>Privacy - Terms</small>
+        </div>
+    </div>
+
+    <span id="captchaError"></span>
+
+</div>
+
+
+<div class="buttons">
+
+    <button type="button" onclick="window.print()" class="print-btn">
+        Print Form
+    </button>
+
+    <button type="submit" class="submit-btn">
+        Submit
+    </button>
+
+</div>
+
+    <button type="submit">Register</button>
+
+</form>
+<script src="script.js"></script>
+
+</body>
+</html>
