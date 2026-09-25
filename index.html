@@ -1,107 +1,467 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Student Registration Form</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub Portal</title>
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
+
 
 <body>
 
-<form onsubmit="return validateForm()">
+    <div id="notification" class="notification">
 
-    <img src="Regi.png" alt="CHARUSAT Logo" class="logo">
-    
-    <h2>Student Registration Form</h2>
+        🔔 Welcome to StudentHub Portal!
 
-    <label>Name:</label>
-    <input type="text" id="name" placeholder="Enter your name">
-    <span id="nameError"></span>
-
-    <label>Email:</label>
-    <input type="email" id="email" placeholder="Enter your email">
-    <span id="emailError"></span>
-
-    <label>Mobile Number:</label>
-    <input type="tel" id="mobile" placeholder="Enter 10 digit mobile number">
-    <span id="mobileError"></span>
-
-    <label>Password:</label>
-    <input type="password" id="password" placeholder="Enter password">
-    <span id="passwordError"></span>
-
-    <label>Confirm Password:</label>
-    <input type="password" id="confirmPassword" placeholder="Confirm password">
-    <span id="confirmError"></span>
-
-    <label>Course:</label>
-    <select id="course">
-        <option value="">-- Select Course --</option>
-        <option value="BCA">BCA</option>
-        <option value="BBA">BBA</option>
-        <option value="BTech">B.Tech</option>
-        <option value="MCA">MCA</option>
-    </select>
-    <span id="courseError"></span>
-
-    <label>Year:</label>
-    <select id="year">
-        <option value="">-- Select Year --</option>
-        <option value="1">First Year</option>
-        <option value="2">Second Year</option>
-        <option value="3">Third Year</option>
-        <option value="4">Fourth Year</option>
-    </select>
-
-    <label>Gender:</label>
-
-    <input class="gender" type="radio" name="gender" value="Male"> Male
-    <input class="gender" type="radio" name="gender" value="Female"> Female
-    <input class="gender" type="radio" name="gender" value="Other"> Other
-
-    <span id="genderError"></span>
-
-    <label>
-        <input class="terms" type="checkbox" id="terms">
-        I accept the terms and conditions
-    </label>
-
-    <span id="termsError"></span>
-<div class="captcha-section">
-
-    <label>Please verify that you are human <span>*</span></label>
-
-    <div class="captcha-box">
-        <input type="checkbox" id="humanCheck">
-        <label for="humanCheck">I am human</label>
-
-        <div class="captcha-logo">
-            <b>🛡️</b>
-            <small>hCaptcha</small>
-            <small>Privacy - Terms</small>
-        </div>
     </div>
 
-    <span id="captchaError"></span>
+    <header>
 
-</div>
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img src="images/logo.png"
+                 alt="Logo">
+
+            <h2>StudentHub</h2>
+
+        </div>
+
+        <nav id="mainNav">
+
+            <a href="index.html">Home</a>
+
+            <a href="pages/dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="pages/courses.html">
+                Courses
+            </a>
+
+            <a href="pages/attendance.html">
+                Attendance
+            </a>
+
+            <a href="pages/assignments.html">
+                Assignments
+            </a>
+
+            <a href="pages/results.html">
+                Results
+            </a>
+
+            <a href="pages/contact.html">
+                Contact
+            </a>
+
+            <a href="pages/login.html">
+                Login
+            </a>
+
+            <a href="pages/register.html">
+                Register
+            </a>
+
+        </nav>
+
+        <div class="javascript-buttons">
+
+            <!-- Hamburger Menu -->
+
+            <button onclick="toggleMenu()">
+
+                ☰ Menu
+
+            </button>
+
+            <button id="themeButton"
+                    onclick="toggleTheme()">
+
+                🌙 Dark Mode
+
+            </button>
+
+            <button onclick="showNotification()">
+
+                🔔 Notification
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-container">
 
 
-<div class="buttons">
+            <!-- HERO TEXT -->
 
-    <button type="button" onclick="window.print()" class="print-btn">
-        Print Form
-    </button>
+            <div class="hero-text">
 
-    <button type="submit" class="submit-btn">
-        Submit
-    </button>
+                <h1>
+                    StudentHub Portal
+                </h1>
 
-</div>
 
-    <button type="submit">Register</button>
+                <p>
 
-</form>
-<script src="script.js"></script>
+                    A Complete Digital Campus
+                    Solution for Students,
+                    Faculty and Administration.
+
+                </p>
+
+
+                <a href="pages/login.html"
+                   class="btn">
+
+                    Get Started
+
+                </a>
+
+
+                <br><br>
+
+
+                <!-- MODAL BUTTON -->
+
+                <button onclick="openModal()">
+
+                    ℹ️ Learn More
+
+                </button>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img id="sliderImage"
+                     src="images/student.png"
+                     alt="Student">
+
+
+                <br>
+
+
+                <button onclick="previousImage()">
+
+                    ❮ Previous
+
+                </button>
+
+
+                <button onclick="nextImage()">
+
+                    Next ❯
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <h2>5000+</h2>
+
+            <p>Students</p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-book"></i>
+
+            <h2>120+</h2>
+
+            <p>Courses</p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-chalkboard-user"></i>
+
+            <h2>180+</h2>
+
+            <p>Faculty</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-award"></i>
+
+            <h2>98%</h2>
+
+            <p>Success Rate</p>
+
+        </div>
+
+    </section>
+
+    <section id="features"
+             class="about">
+
+
+        <h2>
+            Portal Features
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-calendar-check fa-3x"></i>
+
+                <h3>
+                    Attendance
+                </h3>
+
+                <p>
+                    Track your daily attendance
+                    and attendance percentage.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-file-circle-check fa-3x"></i>
+
+                <h3>
+                    Assignments
+                </h3>
+
+                <p>
+                    Submit assignments online
+                    before the due date.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-chart-column fa-3x"></i>
+
+                <h3>
+                    Results
+                </h3>
+
+                <p>
+                    View semester marks,
+                    grades and CGPA instantly.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <i class="fa-solid fa-book-open fa-3x"></i>
+
+                <h3>
+                    Courses
+                </h3>
+
+                <p>
+                    Access course details
+                    and study materials.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about"
+             class="about">
+
+
+        <h2>
+            About StudentHub Portal
+        </h2>
+
+
+        <p>
+
+            StudentHub Portal is a modern web
+            application designed to simplify
+            academic activities.
+
+            <br><br>
+
+            Students can manage attendance,
+            assignments, examination results,
+            course information, notifications,
+            and their personal profile from
+            one secure platform.
+
+        </p>
+
+    </section>
+
+    <section class="faq">
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+
+
+        <!-- FAQ 1 -->
+
+        <button onclick="toggleFAQ('faq1')">
+
+            What is StudentHub?
+
+        </button>
+
+
+        <div id="faq1"
+             class="faq-answer">
+
+            StudentHub is a digital campus
+            portal designed for students.
+
+        </div>
+
+
+
+        <!-- FAQ 2 -->
+
+        <button onclick="toggleFAQ('faq2')">
+
+            What can students access?
+
+        </button>
+
+
+        <div id="faq2"
+             class="faq-answer">
+
+            Students can access courses,
+            attendance, assignments and
+            examination results.
+
+        </div>
+
+
+
+        <!-- FAQ 3 -->
+
+        <button onclick="toggleFAQ('faq3')">
+
+            Is StudentHub easy to use?
+
+        </button>
+
+
+        <div id="faq3"
+             class="faq-answer">
+
+            Yes. StudentHub provides a simple
+            and user-friendly interface.
+
+        </div>
+
+    </section>
+
+
+
+    <div id="myModal"
+         class="modal">
+
+
+        <div class="modal-content">
+
+
+            <span class="close"
+                  onclick="closeModal()">
+
+                &times;
+
+            </span>
+
+
+            <h2>
+                Welcome to StudentHub
+            </h2>
+
+
+            <p>
+
+                StudentHub Portal helps students
+                manage courses, attendance,
+                assignments and results.
+
+            </p>
+
+
+            <button onclick="closeModal()">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <footer>
+
+        <p>
+
+            © 2026 StudentHub Portal |
+            Designed by Divya Rathi
+
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
 
 </body>
+
 </html>
